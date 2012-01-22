@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Fancy Sliding Form with jQuery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Fancy Sliding Form with jQuery" />
+        <meta name="keywords" content="jquery, form, sliding, usability, css3, validation, javascript"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="sliding.form.js"></script>
+    </head>
+    <style>
+        span.reference{
+            position:fixed;
+            left:5px;
+            top:5px;
+            font-size:10px;
+            text-shadow:1px 1px 1px #fff;
+        }
+        span.reference a{
+            color:#555;
+            text-decoration:none;
+			text-transform:uppercase;
+        }
+        span.reference a:hover{
+            color:#000;
+            
+        }
+        h1{
+            color:#ccc;
+            font-size:36px;
+            text-shadow:1px 1px 1px #fff;
+            padding:20px;
+        }
+    </style>
+    <body>
+        <div>
+            <span class="reference">
+                <a href="http://tympanus.net/codrops/2010/06/07/fancy-sliding-form-with-jquery/">back to Codrops</a>
+            </span>
+        </div>
+        <div id="content">
+            <h1>Proteomap</h1>
+            <div id="wrapper">
+                <div id="steps">
+                    <form id="formElem" name="formElem" action="" method="post">
+                        <fieldset class="step">
+                            <legend>Source Validation</legend>
+                            <p>
+                                <label for="title">Title:</label>
+                                <input id="title" name="title" placeholder="Title of the book" />
+								<br />
+								<br />
+                                <label for="authors">Authors:</label>
+                                <input id="authors" name="authors" placeholder="Authors' name" AUTOCOMPLETE=OFF />
+								<br />
+								<br />
+                          		<label for="journal">Journal:</label>
+	                            <input id="journal" name="journal" placeholder="Journal" />
+								<br />
+								<br />
+								<label for="year">Year:</label>
+	                            <input id="year" name="year" placeholder="Published year" />
+								</p>
+								<p>
+	                            <input type="radio" id="correct" name="radioselect" placeholder="correct" />
+                          		<label for="correct">Identified paper is correct:</label>
+								<br />
+								<br />
+	                            <input type="radio" id="PubMed" name="radioselect" placeholder="PubMed" />
+                          		<label for="PubMed">Search with PubMed id:</label>
+	                            <input id="PubMedsearch" name="PubMedsearch" placeholder="enter pubmed id" />
+								<br />
+								<br />
+								<input type="radio" id="Doi" name="radioselect" placeholder="Doi" />
+								<label for="Doi">Search with DOI id:</label>
+	                            <input id="Doisearch" name="Doisearch" placeholder="enter doi id" />
+								<br />
+								<br />
+								<input type="radio" id="Manual" name="radioselect" placeholder="Manual" />
+								<label for="Manual">Enter information manually:</label>
+								<br />
+								<br />
+								</p>
+
+	                          </fieldset>
+                        <fieldset class="step">
+                            <legend>Basic Information</legend>
+							<div class="bbox1"><h2>Primary Molecule</h2></div>
+							<div class="bbox2"><h2>Drag & Drop</h2></div>
+							<div class="bbox3"><h2>Secondary Molecule</h2></div>
+
+                        </fieldset>
+									
+                        <fieldset class="step">
+                            <legend>Interaction Details</legend>
+                            <p>
+                                <label for="cardtype">Card</label>
+                                <select id="cardtype" name="cardtype">
+                                    <option>Visa</option>
+                                    <option>Mastercard</option>
+                                    <option>American Express</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="cardnumber">Card number</label>
+                                <input id="cardnumber" name="cardnumber" type="number" AUTOCOMPLETE=OFF />
+                            </p>
+                            <p>
+                                <label for="secure">Security code</label>
+                                <input id="secure" name="secure" type="number" AUTOCOMPLETE=OFF />
+                            </p>
+                            <p>
+                                <label for="namecard">Name on Card</label>
+                                <input id="namecard" name="namecard" type="text" AUTOCOMPLETE=OFF />
+                            </p>
+                        </fieldset>
+                        <fieldset class="step">
+                            <legend>Review</legend>
+                            <p>
+                                <label for="newsletter">Newsletter</label>
+                                <select id="newsletter" name="newsletter">
+                                    <option value="Daily" selected>Daily</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Never">Never</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="updates">Updates</label>
+                                <select id="updates" name="updates">
+                                    <option value="1" selected>Package 1</option>
+                                    <option value="2">Package 2</option>
+                                    <option value="0">Don't send updates</option>
+                                </select>
+                            </p>
+							<p>
+                                <label for="tagname">Newsletter Tag</label>
+                                <input id="tagname" name="tagname" type="text" AUTOCOMPLETE=OFF />
+                            </p>
+                        </fieldset>
+						<fieldset class="step">
+                            <legend>Confirm and Submit</legend>
+							<p>
+								Everything in the form was correctly filled 
+								if all the steps have a green checkmark icon.
+								A red checkmark icon indicates that some field 
+								is missing or filled out with invalid data. In this
+								last step the user can confirm the submission of
+								the form.
+							</p>
+                            <p class="submit">
+                                <button id="registerButton" type="submit">Register</button>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="navigation" style="display:none;">
+                    <ul>
+                        <li class="selected">
+                            <a href="#">Source Validation</a>
+                        </li>
+                        <li>
+                            <a href="#">Basic Info</a>
+                        </li>
+                        <li>
+                            <a href="#">Interaction Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Review</a>
+                        </li>
+						<li>
+                            <a href="#">Submit</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
